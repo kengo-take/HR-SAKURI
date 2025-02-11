@@ -13,7 +13,7 @@ uploaded_files = st.file_uploader('複製する原稿をアップロードして
 # ファイルがアップロードされた場合
 if uploaded_files is not None:
     try:
-        df = pd.read_excel(uploaded_files)
+        df = pd.read_excel(uploaded_files, encoding='shift-jis')
         st.success("ファイルが正常に読み込まれました。")
         st.write(df)
     except Exception as e:
@@ -25,7 +25,7 @@ if uploaded_files is not None:
 
  
     # 処理結果をCSVとしてダウンロード
-    csv = processed_df.to_csv(index = False).encode('utf-8')
+    csv = processed_df.to_csv(index = False).encode('shift-jis')
     st.download_button(
         label="複製した原稿をダウンロードする",
         data=csv,
