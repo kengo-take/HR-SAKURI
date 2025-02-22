@@ -1,9 +1,11 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import const
 
 
 st.set_page_config(page_icon="📝")
+st.markdown(const.HIDE_ST_STYLE, unsafe_allow_html=True)
 st.header('複製（Excel）')
 
 # ファイルアップロード
